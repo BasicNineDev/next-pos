@@ -1,1 +1,1 @@
-# Fuse - Angular
+# Next POS
