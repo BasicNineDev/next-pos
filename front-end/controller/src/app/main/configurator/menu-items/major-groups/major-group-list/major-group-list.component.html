@@ -1,0 +1,61 @@
+<mat-table #table [dataSource]="dataSource"
+           [@animateStagger]="{value:'50'}">
+<!--
+    &lt;!&ndash; Checkbox Column &ndash;&gt;
+    <ng-container matColumnDef="checkbox">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let majorGroup">
+            <mat-checkbox [(ngModel)]="checkboxes[majorGroup.majorGroupRn]" (ngModelChange)="onSelectedChange(majorGroup.majorGroupRn)"
+                          (click)="$event.stopPropagation()">
+            </mat-checkbox>
+        </mat-cell>
+    </ng-container>
+-->
+
+
+    <!-- MAJOR GROUP NAME Column -->
+    <ng-container matColumnDef="majorGroupRn">
+        <mat-header-cell *matHeaderCellDef>MAJOR GROUP RN</mat-header-cell>
+        <mat-cell *matCellDef="let majorGroup">
+            <p class="text-truncate font-weight-600">{{majorGroup.majorGroupRn}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- MAJOR GROUP NAME Column -->
+    <ng-container matColumnDef="majorGroupName">
+        <mat-header-cell *matHeaderCellDef>MAJOR GROUP NAME</mat-header-cell>
+        <mat-cell *matCellDef="let majorGroup">
+            <p class="text-truncate font-weight-600">{{majorGroup.majorGroupName}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- REPORT GROUP Column -->
+    <ng-container matColumnDef="reportGroup">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>REPORT GROUP</mat-header-cell>
+        <mat-cell *matCellDef="let majorGroup">
+            <p class="text-truncate"> {{majorGroup.reportGroup}} </p>
+        </mat-cell>
+    </ng-container>
+
+    <!-- Buttons Column -->
+    <ng-container matColumnDef="buttons">
+        <mat-header-cell *matHeaderCellDef>ACTION</mat-header-cell>
+        <mat-cell *matCellDef="let majorGroup">
+            <div fxFlex="row" fxLayoutAlign="end center">
+                <button mat-menu-item aria-label="remove" (click)="deleteMajorGroup(majorGroup);$event.stopPropagation();">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let majorGroup; columns: displayedColumns;"
+             class="majorGroup"
+             (click)="editMajorGroup(majorGroup)"
+             matRipple
+             [@animate]="{value:'*',params:{y:'100%'}}">
+    </mat-row>
+</mat-table>
+
+

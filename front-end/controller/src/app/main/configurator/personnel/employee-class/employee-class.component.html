@@ -1,0 +1,110 @@
+<div class="page-layout carded fullwidth inner-scroll">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg accent"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- HEADER -->
+        <div class="header accent" fxLayout="row" fxLayoutAlign="space-between center">
+
+            <!-- APP TITLE -->
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <div class="h2">
+                    Classes
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+
+            <!-- CONTENT -->
+            <div class="content">
+
+                <form name="classesForm" [formGroup]="classesForm" class="classes w-100-p" fxLayout="column" fxFlex>
+
+                    <mat-tab-group>
+
+                        <mat-tab label="General">
+
+                            <div class="tab-content p-24" fusePerfectScrollbar fxLayout="column">
+
+                                <div fxLayout="row" fxLayoutAlign="space-between">
+                                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="45">
+                                        <mat-label>Number</mat-label>
+                                        <input matInput placeholder="Number"
+                                               name="number"
+                                               formControlName="number"
+                                               required>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline" floatLabel="always" fxFlex="45">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput placeholder="Name"
+                                               name="name"
+                                               formControlName="name"
+                                               required>
+                                    </mat-form-field>
+                                </div>
+
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Number of Hours/Day before OT</mat-label>
+                                    <input matInput placeholder="Number of Hours/Day before OT"
+                                           name="hoursDayBeforeOT"
+                                           formControlName="hoursDayBeforeOT"
+                                           required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Number of Hours/Period Before OT</mat-label>
+                                    <input matInput placeholder="Number of Hours/Period Before OT"
+                                           name="hoursPeriodBeforeOT"
+                                           formControlName="hoursPeriodBeforeOT"
+                                           required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Default Transaction Touchscreen</mat-label>
+                                    <input matInput placeholder="Default Transaction Touchscreen"
+                                           name="defaultTransactionTouchscreen"
+                                           formControlName="defaultTransactionTouchscreen"
+                                           required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>MMH Default Transaction Touchscreen</mat-label>
+                                    <mat-select placeholder="Select">
+                                        <mat-option value="option">0 - None</mat-option>
+                                        <mat-option value="option">1 - AAAA</mat-option>
+                                        <mat-option value="option">2 - BBBB</mat-option>
+                                        <mat-option value="option">3 - CCCC</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>SAR Default Transaction Touchscreen</mat-label>
+                                    <mat-select placeholder="Select">
+                                        <mat-option value="option">0 - None</mat-option>
+                                        <mat-option value="option">1 - AAAA</mat-option>
+                                        <mat-option value="option">2 - BBBB</mat-option>
+                                        <mat-option value="option">3 - CCCC</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <!--<mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Time And Attendance</mat-label>
+                                        <mat-checkbox class="example-margin">Authorize/Perform Reprint of Time Card</mat-checkbox>
+                                        <mat-checkbox class="example-margin">Change Revenue Center at Clock-In</mat-checkbox>
+                                        <mat-checkbox class="example-margin">Clock in at Rate 1</mat-checkbox>
+                                        <mat-checkbox class="example-margin">Clock in at Rate 2</mat-checkbox>
+                                        <mat-checkbox class="example-margin">Clock in at Rate 3</mat-checkbox>
+                                        <mat-checkbox class="example-margin">Clock in at Rate 4</mat-checkbox>
+                                </mat-form-field>-->
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

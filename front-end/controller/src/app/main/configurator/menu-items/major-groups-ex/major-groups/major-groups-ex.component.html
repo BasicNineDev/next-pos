@@ -1,0 +1,101 @@
+<div id="major-groups-ex" class="page-layout carded fullwidth inner-scroll">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg accent"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center">
+        <!-- HEADER -->
+        <div class="header accent"
+             fxLayout="column" fxLayoutAlign="center center"
+             fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-between center">
+
+            <!-- APP TITLE -->
+            <div class="logo my-12 m-sm-0"
+                 fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="logo-icon mr-16" [@animate]="{value:'*', params:{delay:'50ms',scale:'0.2'}}">
+                    shopping_basket
+                </mat-icon>
+                <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    MAJOR GROUPS
+                </span>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="search-input-wrapper mx-24 m-md-0"
+                 fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+                <label for="search" class="mr-8">
+                    <mat-icon class="secondary-text">search</mat-icon>
+                </label>
+                <mat-form-field floatLabel="never" fxFlex="1 0 auto">
+                    <input id="search" matInput #filter placeholder="Search">
+                </mat-form-field>
+            </div>
+            <!-- / SEARCH -->
+
+            <button mat-raised-button
+                    [routerLink]="'/configurator/menu-items/major-group2/major-groups-ex/new'"
+                    class="add-major-group-button fuse-white my-12 mt-sm-0">
+                <span>ADD NEW MAJOR GROUP</span>
+            </button>
+
+        </div>
+
+        <!-- / HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+
+            <mat-table class="major-groups-ex-table"
+                       #table [dataSource]="dataSource"
+                       matSort
+                       [@animateStagger]="{value:'50'}"
+                       fusePerfectScrollbar>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="majorGroupRn">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>MAJOR GROUP RN</mat-header-cell>
+                    <mat-cell *matCellDef="let majorGroup">
+                        <p class="text-truncate">{{majorGroup.majorGroupRn}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="majorGroupName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>MAJOR GROUP NAME</mat-header-cell>
+                    <mat-cell *matCellDef="let majorGroup">
+                        <p class="text-truncate">{{majorGroup.majorGroupName}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Category Column -->
+                <ng-container matColumnDef="reportGroup">
+                    <mat-header-cell *matHeaderCellDef fxHide mat-sort-header fxShow.gt-md>REPORT GROUP</mat-header-cell>
+                    <mat-cell *matCellDef="let majorGroup" fxHide fxShow.gt-md>
+                        <p class="text-truncate">{{majorGroup.reportGroup}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+
+                <mat-row *matRowDef="let majorGroup; columns: displayedColumns;"
+                         class="major-group"
+                         matRipple
+                         [routerLink]="'/configurator/menu-items/major-group2/major-groups-ex/'+majorGroup.majorGroupRn+'/'+majorGroup.majorGroupName">
+                </mat-row>
+
+            </mat-table>
+
+            <mat-paginator #paginator
+                           [length]="dataSource.filteredData.length"
+                           [pageIndex]="0"
+                           [pageSize]="10"
+                           [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+
+        </div>
+        <!-- / CONTENT CARD -->
+    </div>
+    <!-- / CENTER -->
+</div>
