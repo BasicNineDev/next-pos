@@ -1,0 +1,136 @@
+<div id="temp-3" class="page-layout simple left-sidebar inner-sidebar inner-scroll" >
+
+    <!-- HEADER -->
+    <div class="header h-80 p-0" fxLayout="row" fxLayoutAlign="space-between center" style="border-bottom: 1px gray solid">
+
+        <div fxFill class="p-12" fxLayout="row" fxLayoutAlign="space-between center" style="border: 1.5px dodgerblue solid">
+            <form fxLayout="row" fxLayoutAlign="start center"
+                  fxFlex="30" name="form" [formGroup]="form">
+                <div fxLayout="row" fxLayoutAlign="start start" fxFlex="1 0 auto" >
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="John Smith"></dx-text-box>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <button fxFlex="8" mat-stroked-button class="m-8" color="accent">
+                <mat-icon class="mr-4">search</mat-icon>
+                <!--<span>{{'TOOLBAR.SEARCH' | translate}}</span>-->
+                <span>Search</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content p-24" fxLayout="column">
+
+        <!--<div class="master-form-area mb-24" fxLayout="column" fxLayoutAlign="start start" fxFill="100">
+            <div class="p-6 mb-12" fxLayout="row" fxLayoutGap="20px" style="border: 0px blue solid" fxFill="">
+                <div fxFlex="25" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-select-box [items]="simpleProducts"></dx-select-box>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="25" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-select-box [items]="simpleProducts"></dx-select-box>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="25" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-select-box [items]="simpleProducts"></dx-select-box>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="25" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-select-box [items]="simpleProducts"></dx-select-box>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 mb-12" fxLayout="row" fxLayoutGap="20px" style="border: 0px orange solid" fxFill="">
+                <div fxFlex="100" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="John Smith"></dx-text-box>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="100" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="John Smith"></dx-text-box>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="100" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="John Smith"></dx-text-box>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="100" style="border: 0px green dashed">
+                    <div class="dx-field">
+                        <div class="dx-field-label">Default mode</div>
+                        <div class="dx-field-value">
+                            <dx-text-box value="John Smith"></dx-text-box>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+<!--
+        <div class="mb-24" fxLayout="row" fxFlex="1 0 auto" style="border: 0px green dashed">
+            <dx-data-grid
+                id="gridContainer"
+                [dataSource]="dataSource"
+                [customizeColumns]="customizeColumns"
+                [showBorders]="true"
+                (onContentReady)="onContentReady($event)">
+                <dxo-load-panel [enabled]="true"></dxo-load-panel>
+                <dxo-scrolling mode="virtual"></dxo-scrolling>
+                <dxo-sorting mode="none"></dxo-sorting>
+            </dx-data-grid>
+        </div>-->
+
+        <div fxLayout="row" fxLayoutGap="24px" style="border: 0px green dashed">
+            <div fxLayout="column" fxFlex="100" style="border: 0px green dashed">
+                <dx-data-grid
+                    id="gridContainerDetail"
+                    [dataSource]="dataSource"
+                    [customizeColumns]="customizeColumns"
+                    [showBorders]="true"
+                    (onContentReady)="onContentReady($event)">
+                    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+                    <dxo-scrolling mode="virtual"></dxo-scrolling>
+                    <dxo-sorting mode="none"></dxo-sorting>
+                </dx-data-grid>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- / CONTENT-->
+</div>
+
+

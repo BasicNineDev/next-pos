@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//MYBATIS.ORG//dtd mAPPER 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.basic9.posnext.console.majorgroup.mapper.MajorGroupMapper">
+
+        <select id="selectMajorGroupByMajorGroupRn" resultType="MajorGroup">
+                SELECT MAJOR_GROUP_RN
+                     , MAJOR_GROUP_NAME
+                     , REPORT_GROUP
+                  FROM MAJOR_GROUP
+                 WHERE MAJOR_GROUP_RN = #{majorGroupRn}
+        </select>
+
+        <select id="selectAllMajorGroup" resultType="majorGroup">
+                SELECT MAJOR_GROUP_RN
+                     , MAJOR_GROUP_NAME
+                     , REPORT_GROUP
+                  FROM MAJOR_GROUP
+        </select>
+
+        <insert id="insertMajorGroup">
+                INSERT INTO MAJOR_GROUP 
+                (
+                	    MAJOR_GROUP_RN
+                      , MAJOR_GROUP_NAME
+                      , REPORT_GROUP
+                )
+                VALUES
+                (
+                		(SELECT NVL(MAX(MAJOR_GROUP_RN),0) + 1 FROM MAJOR_GROUP),
+                        #{majorGroupName},
+                        #{reportGroup}
+                )
+        </insert>
+        
+        <update id="updateMajorGroup">
+                UPDATE MAJOR_GROUP 
+                   SET MAJOR_GROUP_NAME 	=		#{majorGroupName}, 
+                       REPORT_GROUP 		= 		#{reportGroup}
+                 WHERE MAJOR_GROUP_RN 		= 		#{majorGroupRn} 
+        </update>
+        
+        <update id="deleteMajorGroup">
+        		DELETE MAJOR_GROUP
+        		 WHERE MAJOR_GROUP_RN 		= 		#{majorGroupRn}
+        </update>
+        
+        <select id="isMojorGroupExist" resultType="boolean">
+                SELECT COUNT(*)
+                  FROM MAJOR_GROUP
+                 WHERE MAJOR_GROUP_NAME = #{majorGroupName}
+        </select>
+</mapper>
